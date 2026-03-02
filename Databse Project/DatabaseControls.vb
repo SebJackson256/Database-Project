@@ -18,7 +18,7 @@ Module DatabaseControls
 
     Dim path As String = IO.Directory.GetParent(IO.Directory.GetParent(My.Application.Info.DirectoryPath).ToString).ToString
 
-    Private Sub StartChecks()
+    Public Sub StartChecks()
 
         If Not IO.File.Exists(path & "\BankDatabase.accdb") Then
 
@@ -53,6 +53,7 @@ Module DatabaseControls
         FOREIGN KEY (CustomerID)
         REFERENCES Customer(CustomerID)
 );"
+
             command.ExecuteNonQuery()
             command.CommandText =
 "CREATE TABLE BankTransaction (
@@ -81,7 +82,7 @@ Module DatabaseControls
 
     End Sub
 
-    Sub RunSelectQuery(sqlQuery As String)
+    Public Sub RunSelectQuery(sqlQuery As String, dataGrid As DataGridView)
         If databaseLoaded Then
 
 
@@ -93,7 +94,7 @@ Module DatabaseControls
 
                 adaptor.Fill(myDataSet, dataSetTableName)
 
-                Form1.DataGridView1.DataSource = myDataSet.Tables(dataSetTableName)
+                dataGrid.DataSource = myDataSet.Tables(dataSetTableName)
 
             Catch ex As OleDbException
                 MessageBox.Show(ex.Message)
@@ -105,7 +106,7 @@ Module DatabaseControls
 
     End Sub
 
-    Sub RunQuery(sqlQuery As String)
+    Public Sub RunQuery(sqlQuery As String)
 
         connection.Open()
 
@@ -116,7 +117,7 @@ Module DatabaseControls
         connection.Close()
     End Sub
 
-    Sub Insert(tableName As String, fieldNames As String(), fieldValues As String())
+    Public Sub Insert(tableName As String, fieldNames As String(), fieldValues As String())
 
         If databaseLoaded Then
 
@@ -139,7 +140,7 @@ Module DatabaseControls
         End If
     End Sub
 
-    Private Sub LoadDatabaseFromDialog()
+    Public Sub LoadDatabaseFromDialog()
 
         Dim myOpenFileDialog As New OpenFileDialog
         myOpenFileDialog.Filter = "MS Access Files (*.accdb)|*.accdb|All Files(*.*)|*.*"

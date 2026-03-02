@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -86,11 +86,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseControls.vb" />
+    <Compile Include="EnterDetails.Designer.vb">
+      <DependentUpon>EnterDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EnterDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenericDatabaseView.Designer.vb">
+      <DependentUpon>GenericDatabaseView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GenericDatabaseView.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainMenu.Designer.vb">
@@ -112,8 +124,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="EnterDetails.resx">
+      <DependentUpon>EnterDetails.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GenericDatabaseView.resx">
+      <DependentUpon>GenericDatabaseView.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.vb</DependentUpon>
