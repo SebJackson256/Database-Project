@@ -86,10 +86,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseControls.vb" />
-    <Compile Include="EnterDetails.Designer.vb">
-      <DependentUpon>EnterDetails.vb</DependentUpon>
+    <Compile Include="EnterCreateDetails.Designer.vb">
+      <DependentUpon>EnterCreateDetails.vb</DependentUpon>
     </Compile>
-    <Compile Include="EnterDetails.vb">
+    <Compile Include="EnterCreateDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnterSearchDetails.Designer.vb">
+      <DependentUpon>EnterSearchDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EnterSearchDetails.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.vb">
@@ -124,8 +130,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="EnterDetails.resx">
-      <DependentUpon>EnterDetails.vb</DependentUpon>
+    <EmbeddedResource Include="EnterCreateDetails.resx">
+      <DependentUpon>EnterCreateDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterSearchDetails.resx">
+      <DependentUpon>EnterSearchDetails.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>

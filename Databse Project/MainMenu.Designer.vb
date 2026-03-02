@@ -29,6 +29,8 @@ Partial Class MainMenu
         Me.ViewCustomerButton = New System.Windows.Forms.Button()
         Me.ViewTransactionButton = New System.Windows.Forms.Button()
         Me.MakeTransactionButton = New System.Windows.Forms.Button()
+        Me.CreateCustomerButton = New System.Windows.Forms.Button()
+        Me.CreateAccountButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -84,18 +86,40 @@ Partial Class MainMenu
         'MakeTransactionButton
         '
         Me.MakeTransactionButton.Font = New System.Drawing.Font("Yu Gothic", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MakeTransactionButton.Location = New System.Drawing.Point(20, 283)
+        Me.MakeTransactionButton.Location = New System.Drawing.Point(241, 226)
         Me.MakeTransactionButton.Name = "MakeTransactionButton"
         Me.MakeTransactionButton.Size = New System.Drawing.Size(215, 51)
         Me.MakeTransactionButton.TabIndex = 5
         Me.MakeTransactionButton.Text = "Make Transaction"
         Me.MakeTransactionButton.UseVisualStyleBackColor = True
         '
+        'CreateCustomerButton
+        '
+        Me.CreateCustomerButton.Font = New System.Drawing.Font("Yu Gothic", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CreateCustomerButton.Location = New System.Drawing.Point(241, 112)
+        Me.CreateCustomerButton.Name = "CreateCustomerButton"
+        Me.CreateCustomerButton.Size = New System.Drawing.Size(215, 51)
+        Me.CreateCustomerButton.TabIndex = 6
+        Me.CreateCustomerButton.Text = "Create Customer"
+        Me.CreateCustomerButton.UseVisualStyleBackColor = True
+        '
+        'CreateAccountButton
+        '
+        Me.CreateAccountButton.Font = New System.Drawing.Font("Yu Gothic", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CreateAccountButton.Location = New System.Drawing.Point(241, 169)
+        Me.CreateAccountButton.Name = "CreateAccountButton"
+        Me.CreateAccountButton.Size = New System.Drawing.Size(215, 51)
+        Me.CreateAccountButton.TabIndex = 7
+        Me.CreateAccountButton.Text = "Create Account"
+        Me.CreateAccountButton.UseVisualStyleBackColor = True
+        '
         'MainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(265, 333)
+        Me.ClientSize = New System.Drawing.Size(478, 285)
+        Me.Controls.Add(Me.CreateAccountButton)
+        Me.Controls.Add(Me.CreateCustomerButton)
         Me.Controls.Add(Me.MakeTransactionButton)
         Me.Controls.Add(Me.ViewTransactionButton)
         Me.Controls.Add(Me.ViewCustomerButton)
@@ -116,4 +140,6 @@ Partial Class MainMenu
     Friend WithEvents ViewCustomerButton As Button
     Friend WithEvents ViewTransactionButton As Button
     Friend WithEvents MakeTransactionButton As Button
+    Friend WithEvents CreateCustomerButton As Button
+    Friend WithEvents CreateAccountButton As Button
 End Class

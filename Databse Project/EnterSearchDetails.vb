@@ -1,15 +1,8 @@
-﻿Public Class EnterDetails
+﻿Public Class EnterSearchDetails
 
-    Enum OpenMode
-        ViewBalance
-        ViewCustomer
-        ViewTransaction
-        MakeTransaction
-    End Enum
+    Dim mode As MainMenu.Selection
 
-    Dim mode As OpenMode
-
-    Public Sub SetOpenMode(mode As OpenMode)
+    Public Sub SetOpenMode(mode As MainMenu.Selection)
         Me.mode = mode
     End Sub
 
@@ -21,14 +14,12 @@
 
     Private Sub EnterDetails_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Select Case mode
-            Case OpenMode.ViewBalance
+            Case MainMenu.Selection.ViewBalance
                 Label1.Text = "Please enter an account number."
-            Case OpenMode.ViewCustomer
+            Case MainMenu.Selection.ViewCustomer
                 Label1.Text = "Please enter a customer ID."
-            Case OpenMode.ViewTransaction
+            Case MainMenu.Selection.ViewTransaction
                 Label1.Text = "Please enter an account number."
-            Case OpenMode.MakeTransaction
-                Label1.Text = "Please enter an account number to make the transaction from."
         End Select
     End Sub
 

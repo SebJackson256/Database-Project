@@ -138,27 +138,25 @@ Module DatabaseControls
     ''' <param name="tableName">The table in the database to insert into.</param>
     ''' <param name="fieldNames">A string array containing the names of the fields (in order) to insert into in the query.</param>
     ''' <param name="fieldValues">The values to insert into each of the fields specified in the "fieldNames" array.</param>
-    Public Sub Insert(tableName As String, fieldNames As String(), fieldValues As String())
+    Public Sub Insert(tableName As String, fieldNames As String(), fieldValues As Object())
 
         If databaseLoaded Then
 
-            Dim query As String = "INSERT INTO " & tableName & "("
+            connection.Open()
 
-            For Each fieldName As String In fieldNames
-                query &= fieldName & ","
+            Dim fields As String = String.Join(",", fieldNames)
+            Dim placeholders As String = String.Join(",", Enumerable.Repeat("?", fieldValues.Length))
+            Dim query As String = $"INSERT INTO {tableName} ({fields}) VALUES ({placeholders})"
+            Dim command As New OleDbCommand(query, connection)
+
+            For Each value As Object In fieldValues
+                command.Parameters.AddWithValue("?", value)
             Next
-            query = Left(query, query.Length - 1)
-            query &= ") VALUES ('"
 
-            For Each fieldValue As String In fieldValues
-                query &= fieldValue & "','"
-            Next
-            query = Left(query, query.Length - 2)
-            query &= ");"
-
-            RunQuery(query)
-
+            command.ExecuteNonQuery()
+            connection.Close()
         End If
+
     End Sub
 
     ''' <summary>
