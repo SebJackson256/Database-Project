@@ -7,8 +7,6 @@ Imports ADOX
 
 Module DatabaseControls
 
-
-
     Const dataBaseProvider As String = "Provider=Microsoft.ACE.OLEDB.16.0;"
     Dim myDatabasePath As String
     Dim databaseLoaded As Boolean = False
