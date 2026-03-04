@@ -1,6 +1,4 @@
-﻿Imports System.Reflection.Emit
-
-Public Class GenericDatabaseView
+﻿Public Class GenericDatabaseView
 
     Dim mode As MainMenu.Selection
     Dim accountNumber As Integer

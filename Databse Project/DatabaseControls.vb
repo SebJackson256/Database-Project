@@ -43,6 +43,8 @@ Module DatabaseControls
     CustomerID AUTOINCREMENT PRIMARY KEY,
     FirstName TEXT,
     LastName TEXT,
+    Email TEXT,
+    HashedPassword TEXT,
     DateOfBirth DATE
 );"
             command.ExecuteNonQuery()
@@ -79,6 +81,8 @@ Module DatabaseControls
             connection.Close()
 
             databaseLoaded = True
+
+            MessageBox.Show("Database created.")
 
         End If
 
@@ -138,8 +142,6 @@ Module DatabaseControls
     ''' <param name="fieldValues">The values to insert into each of the fields specified in the "fieldNames" array.</param>
     Public Sub Insert(tableName As String, fieldNames As String(), fieldValues As Object())
 
-
-
         If databaseLoaded Then
 
             Try
@@ -165,35 +167,6 @@ Module DatabaseControls
         End If
 
     End Sub
-
-    'Public Sub Update(tableName As String, fieldNames As String(), fieldValues As Object())
-
-    '    If databaseLoaded Then
-
-    '        Try
-
-    '            connection.Open()
-
-    '            Dim fields As String = String.Join(",", fieldNames)
-    '            Dim placeholders As String = String.Join(",", Enumerable.Repeat("?", fieldValues.Length))
-    '            Dim query As String = $"INSERT INTO {tableName} ({fields}) VALUES ({placeholders})"
-    '            Dim command As New OleDbCommand(query, connection)
-
-    '            For Each value As Object In fieldValues
-    '                command.Parameters.AddWithValue("?", value)
-    '            Next
-
-    '            command.ExecuteNonQuery()
-    '            connection.Close()
-
-    '        Catch ex As Exception
-    '            MessageBox.Show(ex.Message)
-    '        End Try
-
-    '    End If
-
-
-    'End Sub
 
     ''' <summary>
     ''' Gives the user a dialogue box from which to select an access database.
@@ -224,6 +197,5 @@ Module DatabaseControls
         connection.Close()
         databaseLoaded = True
     End Sub
-
 
 End Module
