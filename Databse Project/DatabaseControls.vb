@@ -45,7 +45,6 @@ Module DatabaseControls
     LastName TEXT,
     DateOfBirth DATE
 );"
-
             command.ExecuteNonQuery()
 
             command.CommandText =
@@ -59,8 +58,8 @@ Module DatabaseControls
         FOREIGN KEY (CustomerID)
         REFERENCES Customer(CustomerID)
 );"
-
             command.ExecuteNonQuery()
+
             command.CommandText =
 "CREATE TABLE BankTransaction (
     TransactionID AUTOINCREMENT PRIMARY KEY,
@@ -75,7 +74,6 @@ Module DatabaseControls
         FOREIGN KEY (DestinationAccountID)
         REFERENCES Account(AccountID)
 );"
-
             command.ExecuteNonQuery()
 
             connection.Close()
@@ -140,21 +138,30 @@ Module DatabaseControls
     ''' <param name="fieldValues">The values to insert into each of the fields specified in the "fieldNames" array.</param>
     Public Sub Insert(tableName As String, fieldNames As String(), fieldValues As Object())
 
+
+
         If databaseLoaded Then
 
-            connection.Open()
+            Try
 
-            Dim fields As String = String.Join(",", fieldNames)
-            Dim placeholders As String = String.Join(",", Enumerable.Repeat("?", fieldValues.Length))
-            Dim query As String = $"INSERT INTO {tableName} ({fields}) VALUES ({placeholders})"
-            Dim command As New OleDbCommand(query, connection)
+                connection.Open()
 
-            For Each value As Object In fieldValues
-                command.Parameters.AddWithValue("?", value)
-            Next
+                Dim fields As String = String.Join(",", fieldNames)
+                Dim placeholders As String = String.Join(",", Enumerable.Repeat("?", fieldValues.Length))
+                Dim query As String = $"INSERT INTO {tableName} ({fields}) VALUES ({placeholders})"
+                Dim command As New OleDbCommand(query, connection)
 
-            command.ExecuteNonQuery()
-            connection.Close()
+                For Each value As Object In fieldValues
+                    command.Parameters.AddWithValue("?", value)
+                Next
+
+                command.ExecuteNonQuery()
+                connection.Close()
+
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+
         End If
 
     End Sub

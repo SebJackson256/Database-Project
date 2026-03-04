@@ -39,7 +39,7 @@
                     DatabaseControls.Insert("Customer", fieldNames, fieldValues)
                 Case MainMenu.Selection.CreateAccount
                     fieldNames = {"CustomerID", "OpeningDate", "Balance"}
-                    fieldValues = {CInt(TextBox1.Text), DateTime.Now, CDec(TextBox2.Text)}
+                    fieldValues = {CInt(TextBox1.Text), Format(DateTime.Now, "dd/MM/yyyy"), CDec(TextBox2.Text)}
                     DatabaseControls.Insert("Account", fieldNames, fieldValues)
                 Case MainMenu.Selection.MakeTransaction
                     fieldNames = {"Amount", "SourceAccountID", "DestinationAccountID", "TransactionDate"}
