@@ -4,7 +4,7 @@ Imports System.Environment
 Imports System.IO
 Imports ADOX
 
-Public Class Form1
+Public Class SelectFromDatabase
 
     Const dataBaseProvider As String = "Provider=Microsoft.ACE.OLEDB.16.0;"
     Dim myDatabasePath As String
