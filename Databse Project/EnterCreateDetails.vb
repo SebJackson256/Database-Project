@@ -43,9 +43,12 @@
                     DatabaseControls.Insert("Account", fieldNames, fieldValues)
                 Case MainMenu.Selection.MakeTransaction
                     fieldNames = {"Amount", "SourceAccountID", "DestinationAccountID", "TransactionDate"}
-                    fieldValues = {TextBox3.Text, TextBox1.Text, TextBox2.Text, DateTime.Now}
+                    fieldValues = {TextBox3.Text, TextBox1.Text, TextBox2.Text, Format(DateTime.Now, "dd/MM/yyyy")}
                     DatabaseControls.Insert("BankTransaction", fieldNames, fieldValues)
-                    'INCOMPLETE
+                    Dim updateQuery1 As String = "UPDATE Account SET Balance = Balance - " & CDec(TextBox3.Text) & " WHERE AccountID = " & CInt(TextBox1.Text) & ";"
+                    Dim updateQuery2 As String = "UPDATE Account SET Balance = Balance + " & CDec(TextBox3.Text) & " WHERE AccountID = " & CInt(TextBox2.Text) & ";"
+                    RunQuery(updateQuery1)
+                    RunQuery(updateQuery2)
             End Select
         End If
     End Sub
