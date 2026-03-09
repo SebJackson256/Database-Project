@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <StartupObject>Databse_Project.MainMenu</StartupObject>
     <RootNamespace>Databse_Project</RootNamespace>
-    <AssemblyName>Databse Project</AssemblyName>
+    <AssemblyName>Database Project</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -22,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Databse Project.xml</DocumentationFile>
+    <DocumentationFile>Database Project.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <Prefer32Bit>true</Prefer32Bit>
@@ -36,7 +36,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Databse Project.xml</DocumentationFile>
+    <DocumentationFile>Database Project.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>

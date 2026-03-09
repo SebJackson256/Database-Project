@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Databse Project", "Databse Project\Databse Project.vbproj", "{D9A1B793-BF9D-4C4F-9CC7-D996D7402940}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Database Project", "Databse Project\Database Project.vbproj", "{D9A1B793-BF9D-4C4F-9CC7-D996D7402940}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
