@@ -11,7 +11,7 @@
             Case MainMenu.Selection.ViewCustomer
                 DatabaseControls.RunSelectQuery("SELECT * FROM Customer WHERE CustomerID = " & customerID & ";", DataGridView1)
             Case MainMenu.Selection.ViewTransaction
-                DatabaseControls.RunSelectQuery("SELECT * FROM BankTransaction WHERE SourceAccountID = " & accountNumber & ";", DataGridView1)
+                DatabaseControls.RunSelectQuery("SELECT * FROM BankTransaction WHERE SourceAccountID = " & accountNumber & " OR DestinationAccountID = " & accountNumber & ";", DataGridView1)
         End Select
     End Sub
 

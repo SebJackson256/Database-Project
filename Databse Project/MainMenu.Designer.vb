@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class MainMenu
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class MainMenu
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainMenu))
         Me.Label1 = New System.Windows.Forms.Label()
@@ -31,6 +31,8 @@ Partial Class MainMenu
         Me.MakeTransactionButton = New System.Windows.Forms.Button()
         Me.CreateCustomerButton = New System.Windows.Forms.Button()
         Me.CreateAccountButton = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -113,11 +115,32 @@ Partial Class MainMenu
         Me.CreateAccountButton.Text = "Create Account"
         Me.CreateAccountButton.UseVisualStyleBackColor = True
         '
+        'Button2
+        '
+        Me.Button2.Font = New System.Drawing.Font("Yu Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(363, 9)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 8
+        Me.Button2.Text = "Login..."
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(360, 35)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(39, 13)
+        Me.Label2.TabIndex = 9
+        Me.Label2.Text = "Label2"
+        '
         'MainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(478, 285)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.CreateAccountButton)
         Me.Controls.Add(Me.CreateCustomerButton)
         Me.Controls.Add(Me.MakeTransactionButton)
@@ -142,4 +165,6 @@ Partial Class MainMenu
     Friend WithEvents MakeTransactionButton As Button
     Friend WithEvents CreateCustomerButton As Button
     Friend WithEvents CreateAccountButton As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Label2 As Label
 End Class

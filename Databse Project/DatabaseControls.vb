@@ -17,7 +17,7 @@ Module DatabaseControls
     Dim connection As OleDbConnection
     Dim adaptor As OleDbDataAdapter
     Dim myDataSet As DataSet
-    Dim dataSetTableName As String = "A"
+    Const dataSetTableName As String = "A"
 
     Dim path As String = IO.Directory.GetParent(IO.Directory.GetParent(My.Application.Info.DirectoryPath).ToString).ToString
 
@@ -109,15 +109,98 @@ Module DatabaseControls
 
                 dataGrid.DataSource = myDataSet.Tables(dataSetTableName)
 
+                connection.Close()
+
             Catch ex As OleDbException
                 MessageBox.Show(ex.Message)
+                connection.Close()
             End Try
-
-            connection.Close()
 
         End If
 
     End Sub
+
+    ''' <summary>
+    ''' Runs a select query and returns the value of a specified field in the first row of the output.
+    ''' </summary>
+    ''' <param name="sqlQuery">The query used to retrieve the data.</param>
+    ''' <param name="fieldName">The field to return a value from.</param>
+    ''' <returns>The value in the first row of the table retrieved through the "sqlQuery" in field "fieldName".</returns>
+    Public Function GetValueFromTable(sqlQuery As String, fieldName As String) As Object
+
+        If databaseLoaded Then
+
+            connection.Open()
+
+            Try
+                adaptor = New OleDbDataAdapter(sqlQuery, connection)
+                myDataSet = New DataSet()
+
+                adaptor.Fill(myDataSet, dataSetTableName)
+
+                connection.Close()
+
+                Dim rows() As DataRow
+                rows = myDataSet.Tables(dataSetTableName).Select()
+                Return rows(0).Field(Of Object)(fieldName)
+
+            Catch ex As OleDbException
+                MessageBox.Show(ex.Message)
+                connection.Close()
+            End Try
+
+        End If
+
+    End Function
+
+    ''' <summary>
+    ''' Finds a value in a specified field in a specified table and returns the value of another specified field in the same row.
+    ''' </summary>
+    ''' <param name="tableName">The table to search through.</param>
+    ''' <param name="fieldName">The field to search through.</param>
+    ''' <param name="valueToFind">The value to find in the "fieldName" field.</param>
+    ''' <param name="fieldToReturn">The field to return the value of in the row where "valueToFind" is found.</param>
+    ''' <returns>The value of "fieldToReturn" in the row where "valueToFind" is found. Returns -1 if "valueToFind" is not found.</returns>
+    Public Function FindValueInTable(tableName As String, fieldName As String, valueToFind As Object, fieldToReturn As String) As Object
+
+        If databaseLoaded Then
+
+            connection.Open()
+
+            Dim sqlQuery As String = $"SELECT {fieldName}, {fieldToReturn} FROM {tableName}"
+
+
+            Try
+                adaptor = New OleDbDataAdapter(sqlQuery, connection)
+                myDataSet = New DataSet()
+
+                adaptor.Fill(myDataSet, dataSetTableName)
+
+                connection.Close()
+
+                Dim rows() As DataRow
+                rows = myDataSet.Tables(dataSetTableName).Select()
+
+                Dim row As DataRow
+
+                For Each row In rows
+
+                    If CStr(row.Field(Of Object)(fieldName)) = CStr(valueToFind) Then
+                        Return row.Field(Of Object)(fieldToReturn)
+                    End If
+
+                Next
+
+                Return -1
+
+            Catch ex As OleDbException
+                MessageBox.Show(ex.Message)
+                connection.Close()
+            End Try
+
+        End If
+
+    End Function
 
     ''' <summary>
     ''' Runs an SQL query.
@@ -140,7 +223,8 @@ Module DatabaseControls
     ''' <param name="tableName">The table in the database to insert into.</param>
     ''' <param name="fieldNames">A string array containing the names of the fields (in order) to insert into in the query.</param>
     ''' <param name="fieldValues">The values to insert into each of the fields specified in the "fieldNames" array.</param>
-    Public Sub Insert(tableName As String, fieldNames As String(), fieldValues As Object())
+    ''' <returns></returns>
+    Public Function Insert(tableName As String, fieldNames As String(), fieldValues As Object(), returnPreviousID As Boolean) As Integer
 
         If databaseLoaded Then
 
@@ -158,15 +242,39 @@ Module DatabaseControls
                 Next
 
                 command.ExecuteNonQuery()
+
+                Dim newID As Integer
+
+                If returnPreviousID Then
+                    newID = GetPreviousID()
+                    connection.Close()
+                    Return newID
+                End If
+
                 connection.Close()
 
             Catch ex As Exception
                 MessageBox.Show(ex.Message)
+                connection.Close()
             End Try
 
         End If
 
-    End Sub
+        Return -1
+
+    End Function
+
+
+    Public Function GetPreviousID() As Integer
+
+
+        Dim identityCommand As New OleDbCommand("SELECT @@IDENTITY", connection)
+        Dim newID As Integer = Convert.ToInt32(identityCommand.ExecuteScalar())
+
+
+        Return newID
+
+    End Function
 
     ''' <summary>
     ''' Gives the user a dialogue box from which to select an access database.
