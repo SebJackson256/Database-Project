@@ -102,7 +102,7 @@
                     fieldValues = {TextBox1.Text, TextBox2.Text, TextBox4.Text, Utils.GetSHA256Hash(TextBox5.Text), CDate(TextBox3.Text)}
                     newID = DatabaseControls.Insert("Customer", fieldNames, fieldValues, True)
 
-                    MessageBox.Show($"Customer created successfully. Customer ID number is {DatabaseControls.GetValueFromTable($"Select CustomerID From Customer Where Email = {TextBox4.Text}", "CustomerID")}")
+                    MessageBox.Show($"Customer created successfully. Customer ID number is {DatabaseControls.GetValueFromTable($"Select CustomerID From Customer Where Email = '{TextBox4.Text}'", "CustomerID")}")
                     Me.Hide()
 
                 Catch ex As InvalidCastException

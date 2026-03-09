@@ -66,4 +66,8 @@
 
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Me.Hide()
+        EnterCreateDetails.SetOpenMode(MainMenu.Selection.CreateCustomer)
+    End Sub
 End Class
