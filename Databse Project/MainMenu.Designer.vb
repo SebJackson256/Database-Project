@@ -48,7 +48,7 @@ Partial Class MainMenu
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Yu Gothic", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(20, 55)
+        Me.Button1.Location = New System.Drawing.Point(20, 248)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(215, 51)
         Me.Button1.TabIndex = 1
@@ -58,7 +58,7 @@ Partial Class MainMenu
         'ViewBalanceButton
         '
         Me.ViewBalanceButton.Font = New System.Drawing.Font("Yu Gothic", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ViewBalanceButton.Location = New System.Drawing.Point(20, 112)
+        Me.ViewBalanceButton.Location = New System.Drawing.Point(241, 55)
         Me.ViewBalanceButton.Name = "ViewBalanceButton"
         Me.ViewBalanceButton.Size = New System.Drawing.Size(215, 51)
         Me.ViewBalanceButton.TabIndex = 2
@@ -68,7 +68,7 @@ Partial Class MainMenu
         'ViewCustomerButton
         '
         Me.ViewCustomerButton.Font = New System.Drawing.Font("Yu Gothic", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ViewCustomerButton.Location = New System.Drawing.Point(20, 169)
+        Me.ViewCustomerButton.Location = New System.Drawing.Point(241, 248)
         Me.ViewCustomerButton.Name = "ViewCustomerButton"
         Me.ViewCustomerButton.Size = New System.Drawing.Size(215, 51)
         Me.ViewCustomerButton.TabIndex = 3
@@ -78,7 +78,7 @@ Partial Class MainMenu
         'ViewTransactionButton
         '
         Me.ViewTransactionButton.Font = New System.Drawing.Font("Yu Gothic", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ViewTransactionButton.Location = New System.Drawing.Point(20, 226)
+        Me.ViewTransactionButton.Location = New System.Drawing.Point(241, 112)
         Me.ViewTransactionButton.Name = "ViewTransactionButton"
         Me.ViewTransactionButton.Size = New System.Drawing.Size(215, 51)
         Me.ViewTransactionButton.TabIndex = 4
@@ -88,7 +88,7 @@ Partial Class MainMenu
         'MakeTransactionButton
         '
         Me.MakeTransactionButton.Font = New System.Drawing.Font("Yu Gothic", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MakeTransactionButton.Location = New System.Drawing.Point(241, 226)
+        Me.MakeTransactionButton.Location = New System.Drawing.Point(20, 169)
         Me.MakeTransactionButton.Name = "MakeTransactionButton"
         Me.MakeTransactionButton.Size = New System.Drawing.Size(215, 51)
         Me.MakeTransactionButton.TabIndex = 5
@@ -98,7 +98,7 @@ Partial Class MainMenu
         'CreateCustomerButton
         '
         Me.CreateCustomerButton.Font = New System.Drawing.Font("Yu Gothic", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CreateCustomerButton.Location = New System.Drawing.Point(241, 112)
+        Me.CreateCustomerButton.Location = New System.Drawing.Point(20, 55)
         Me.CreateCustomerButton.Name = "CreateCustomerButton"
         Me.CreateCustomerButton.Size = New System.Drawing.Size(215, 51)
         Me.CreateCustomerButton.TabIndex = 6
@@ -108,7 +108,7 @@ Partial Class MainMenu
         'CreateAccountButton
         '
         Me.CreateAccountButton.Font = New System.Drawing.Font("Yu Gothic", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CreateAccountButton.Location = New System.Drawing.Point(241, 169)
+        Me.CreateAccountButton.Location = New System.Drawing.Point(20, 112)
         Me.CreateAccountButton.Name = "CreateAccountButton"
         Me.CreateAccountButton.Size = New System.Drawing.Size(215, 51)
         Me.CreateAccountButton.TabIndex = 7
@@ -138,7 +138,7 @@ Partial Class MainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(478, 285)
+        Me.ClientSize = New System.Drawing.Size(478, 312)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.CreateAccountButton)
