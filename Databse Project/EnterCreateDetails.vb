@@ -103,7 +103,13 @@
                     newID = DatabaseControls.Insert("Customer", fieldNames, fieldValues, True)
 
                     MessageBox.Show($"Customer created successfully. Customer ID number is {DatabaseControls.GetValueFromTable($"Select CustomerID From Customer Where Email = '{TextBox4.Text}'", "CustomerID")}")
+
                     Me.Hide()
+                    TextBox1.Text = ""
+                    TextBox2.Text = ""
+                    TextBox3.Text = ""
+                    TextBox4.Text = ""
+                    TextBox5.Text = ""
 
                 Catch ex As InvalidCastException
                     MessageBox.Show(ex.Message & vbCr & "Please enter valid data.")
@@ -122,6 +128,7 @@
                     MessageBox.Show($"Account created successfully. Account number is {Format(newID, "0000")}")
 
                     Me.Hide()
+                    TextBox1.Text = ""
 
                 Catch ex As InvalidCastException
                     MessageBox.Show(ex.Message & vbCr & "Please enter valid data.")
@@ -145,7 +152,11 @@
                     RunQuery(updateQuery2)
 
                     MessageBox.Show("Transaction made successfully.")
+
                     Me.Hide()
+                    TextBox1.Text = ""
+                    TextBox2.Text = ""
+                    TextBox3.Text = ""
 
                 Catch ex As InvalidCastException
                     MessageBox.Show(ex.Message & vbCr & ex.StackTrace & vbCr & "Please enter valid data.")
