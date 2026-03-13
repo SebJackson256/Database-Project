@@ -119,6 +119,7 @@ Partial Class EnterCreateDetails
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(100, 20)
         Me.TextBox5.TabIndex = 10
+        Me.TextBox5.UseSystemPasswordChar = True
         '
         'Label5
         '

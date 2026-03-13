@@ -76,6 +76,7 @@ Partial Class LoginPage
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(100, 25)
         Me.TextBox2.TabIndex = 4
+        Me.TextBox2.UseSystemPasswordChar = True
         '
         'CheckBox1
         '
